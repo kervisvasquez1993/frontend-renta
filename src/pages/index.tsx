@@ -1,118 +1,269 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
+/**
+ * v0 by Vercel.
+ * @see https://v0.dev/t/f6y8QtNVkIH
+ * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
+ */
+import { CarouselItem, CarouselContent, CarouselPrevious, CarouselNext, Carousel } from "@/components/ui/carousel"
+import { Button } from "@/components/ui/button"
 
-const inter = Inter({ subsets: ["latin"] });
-
-export default function Home() {
+export default function Component() {
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/pages/index.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <>
+      <header className="bg-gray-900 text-white py-4">
+        <div className="container mx-auto flex justify-between items-center">
+          <div className="flex items-center">
+            <svg className="h-8 w-8 mr-2" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z"
+                fill="currentColor"
+              />
+              <path
+                d="M12 6C9.79 6 8 7.79 8 10C8 12.21 9.79 14 12 14C14.21 14 16 12.21 16 10C16 7.79 14.21 6 12 6ZM12 12C10.9 12 10 11.1 10 10C10 8.9 10.9 8 12 8C13.1 8 14 8.9 14 10C14 11.1 13.1 12 12 12Z"
+                fill="currentColor"
+              />
+            </svg>
+            <span className="text-2xl font-bold">Property Finder</span>
+          </div>
+          <nav>
+            <ul className="flex space-x-4">
+              <li>
+                <a className="hover:text-gray-400" href="#">
+                  Home
+                </a>
+              </li>
+              <li>
+                <a className="hover:text-gray-400" href="#">
+                  Buy
+                </a>
+              </li>
+              <li>
+                <a className="hover:text-gray-400" href="#">
+                  Rent
+                </a>
+              </li>
+              <li>
+                <a className="hover:text-gray-400" href="#">
+                  About
+                </a>
+              </li>
+              <li>
+                <a className="hover:text-gray-400" href="#">
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </nav>
         </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+      </header>
+      <main>
+        <section className="bg-gray-100 py-8">
+          <div className="container mx-auto">
+            <Carousel className="w-full max-w-6xl">
+              <CarouselContent>
+                <CarouselItem>
+                  <div className="relative h-[400px] overflow-hidden rounded-lg">
+                    <img
+                      alt="Property 1"
+                      className="w-full h-full object-cover"
+                      height={400}
+                      src="/placeholder.svg"
+                      style={{
+                        aspectRatio: "1200/400",
+                        objectFit: "cover",
+                      }}
+                      width={1200}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                    <div className="absolute bottom-0 left-0 p-6 text-white">
+                      <h2 className="text-2xl font-bold">Luxury Apartment</h2>
+                      <p className="text-lg">$2,500/month</p>
+                    </div>
+                  </div>
+                </CarouselItem>
+                <CarouselItem>
+                  <div className="relative h-[400px] overflow-hidden rounded-lg">
+                    <img
+                      alt="Property 2"
+                      className="w-full h-full object-cover"
+                      height={400}
+                      src="/placeholder.svg"
+                      style={{
+                        aspectRatio: "1200/400",
+                        objectFit: "cover",
+                      }}
+                      width={1200}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                    <div className="absolute bottom-0 left-0 p-6 text-white">
+                      <h2 className="text-2xl font-bold">Beachfront Villa</h2>
+                      <p className="text-lg">$4,000/month</p>
+                    </div>
+                  </div>
+                </CarouselItem>
+                <CarouselItem>
+                  <div className="relative h-[400px] overflow-hidden rounded-lg">
+                    <img
+                      alt="Property 3"
+                      className="w-full h-full object-cover"
+                      height={400}
+                      src="/placeholder.svg"
+                      style={{
+                        aspectRatio: "1200/400",
+                        objectFit: "cover",
+                      }}
+                      width={1200}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                    <div className="absolute bottom-0 left-0 p-6 text-white">
+                      <h2 className="text-2xl font-bold">Cozy Cottage</h2>
+                      <p className="text-lg">$1,800/month</p>
+                    </div>
+                  </div>
+                </CarouselItem>
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
+          </div>
+        </section>
+        <section className="py-12">
+          <div className="container mx-auto">
+            <h2 className="text-3xl font-bold mb-8">Featured Properties</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+              <div className="bg-white rounded-lg shadow-md overflow-hidden">
+                <img
+                  alt="Property 1"
+                  className="w-full h-48 object-cover"
+                  height={250}
+                  src="/placeholder.svg"
+                  style={{
+                    aspectRatio: "400/250",
+                    objectFit: "cover",
+                  }}
+                  width={400}
+                />
+                <div className="p-4">
+                  <h3 className="text-xl font-bold mb-2">Luxury Apartment</h3>
+                  <p className="text-gray-600 mb-4">$2,500/month</p>
+                  <div className="flex justify-between items-center">
+                    <Button variant="primary">View Details</Button>
+                    <Button variant="outline">Rent</Button>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-white rounded-lg shadow-md overflow-hidden">
+                <img
+                  alt="Property 2"
+                  className="w-full h-48 object-cover"
+                  height={250}
+                  src="/placeholder.svg"
+                  style={{
+                    aspectRatio: "400/250",
+                    objectFit: "cover",
+                  }}
+                  width={400}
+                />
+                <div className="p-4">
+                  <h3 className="text-xl font-bold mb-2">Beachfront Villa</h3>
+                  <p className="text-gray-600 mb-4">$4,000/month</p>
+                  <div className="flex justify-between items-center">
+                    <Button variant="primary">View Details</Button>
+                    <Button variant="outline">Rent</Button>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-white rounded-lg shadow-md overflow-hidden">
+                <img
+                  alt="Property 3"
+                  className="w-full h-48 object-cover"
+                  height={250}
+                  src="/placeholder.svg"
+                  style={{
+                    aspectRatio: "400/250",
+                    objectFit: "cover",
+                  }}
+                  width={400}
+                />
+                <div className="p-4">
+                  <h3 className="text-xl font-bold mb-2">Cozy Cottage</h3>
+                  <p className="text-gray-600 mb-4">$1,800/month</p>
+                  <div className="flex justify-between items-center">
+                    <Button variant="primary">View Details</Button>
+                    <Button variant="outline">Rent</Button>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-white rounded-lg shadow-md overflow-hidden">
+                <img
+                  alt="Property 4"
+                  className="w-full h-48 object-cover"
+                  height={250}
+                  src="/placeholder.svg"
+                  style={{
+                    aspectRatio: "400/250",
+                    objectFit: "cover",
+                  }}
+                  width={400}
+                />
+                <div className="p-4">
+                  <h3 className="text-xl font-bold mb-2">Modern Townhouse</h3>
+                  <p className="text-gray-600 mb-4">$3,200/month</p>
+                  <div className="flex justify-between items-center">
+                    <Button variant="primary">View Details</Button>
+                    <Button variant="outline">Rent</Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer className="bg-gray-900 text-white py-8">
+        <div className="container mx-auto flex justify-between items-center">
+          <div className="flex items-center">
+            <svg className="h-8 w-8 mr-2" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z"
+                fill="currentColor"
+              />
+              <path
+                d="M12 6C9.79 6 8 7.79 8 10C8 12.21 9.79 14 12 14C14.21 14 16 12.21 16 10C16 7.79 14.21 6 12 6ZM12 12C10.9 12 10 11.1 10 10C10 8.9 10.9 8 12 8C13.1 8 14 8.9 14 10C14 11.1 13.1 12 12 12Z"
+                fill="currentColor"
+              />
+            </svg>
+            <span className="text-2xl font-bold">Property Finder</span>
+          </div>
+          <nav>
+            <ul className="flex space-x-4">
+              <li>
+                <a className="hover:text-gray-400" href="#">
+                  Home
+                </a>
+              </li>
+              <li>
+                <a className="hover:text-gray-400" href="#">
+                  Buy
+                </a>
+              </li>
+              <li>
+                <a className="hover:text-gray-400" href="#">
+                  Rent
+                </a>
+              </li>
+              <li>
+                <a className="hover:text-gray-400" href="#">
+                  About
+                </a>
+              </li>
+              <li>
+                <a className="hover:text-gray-400" href="#">
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </footer>
+    </>
+  )
 }
