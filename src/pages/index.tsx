@@ -3,8 +3,14 @@
  * @see https://v0.dev/t/f6y8QtNVkIH
  * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
  */
-import { CarouselItem, CarouselContent, CarouselPrevious, CarouselNext, Carousel } from "@/components/ui/carousel"
-import { Button } from "@/components/ui/button"
+import {
+  CarouselItem,
+  CarouselContent,
+  CarouselPrevious,
+  CarouselNext,
+  Carousel,
+} from "@/components/ui/carousel";
+import { Button } from "@/components/ui/button";
 
 export default function Component() {
   return (
@@ -12,7 +18,12 @@ export default function Component() {
       <header className="bg-gray-900 text-white py-4">
         <div className="container mx-auto flex justify-between items-center">
           <div className="flex items-center">
-            <svg className="h-8 w-8 mr-2" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <svg
+              className="h-8 w-8 mr-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path
                 d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z"
                 fill="currentColor"
@@ -43,12 +54,12 @@ export default function Component() {
               </li>
               <li>
                 <a className="hover:text-gray-400" href="#">
-                  About
+                  Login
                 </a>
               </li>
               <li>
                 <a className="hover:text-gray-400" href="#">
-                  Contact
+                  Sing up
                 </a>
               </li>
             </ul>
@@ -221,7 +232,12 @@ export default function Component() {
       <footer className="bg-gray-900 text-white py-8">
         <div className="container mx-auto flex justify-between items-center">
           <div className="flex items-center">
-            <svg className="h-8 w-8 mr-2" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <svg
+              className="h-8 w-8 mr-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path
                 d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z"
                 fill="currentColor"
@@ -252,12 +268,12 @@ export default function Component() {
               </li>
               <li>
                 <a className="hover:text-gray-400" href="#">
-                  About
+                  Login
                 </a>
               </li>
               <li>
                 <a className="hover:text-gray-400" href="#">
-                  Contact
+                  Sing up
                 </a>
               </li>
             </ul>
@@ -265,5 +281,5 @@ export default function Component() {
         </div>
       </footer>
     </>
-  )
+  );
 }
