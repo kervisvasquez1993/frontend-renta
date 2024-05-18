@@ -24,7 +24,8 @@
     "swr": "^2.2.5",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
-    "zustand": "^4.5.2"
+    "zustand": "^4.5.2",
+    "next-auth": "^4.24.5"
   },
   "devDependencies": {
     "@types/node": "^20",
