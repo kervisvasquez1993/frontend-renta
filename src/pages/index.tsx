@@ -16,10 +16,19 @@ import { Card } from "@/components/ui/card";
 import { Header } from "@/components/layout/header";
 import { CarouselHeader } from "@/components/shared/CarouselHeader";
 import { useFetch } from "@/hooks/useFetch";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { usePagePagination } from "@/store/usePagePagination.store";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Inmueble } from "../interfaces/Inmueble";
 
 export default function Component() {
   const [page, setPage] = useState(1);
+  const totalPage = usePagePagination((state) => state.totalPage);
+  const lastPageState = usePagePagination((state) => state.lastPage);
+  const currentPageState = usePagePagination((state) => state.currentPage);
+  const setTotalPage = usePagePagination((state) => state.setTotalPage);
+  const setLastPage = usePagePagination((state) => state.setLastPage);
+  const setCurrentPage = usePagePagination((state) => state.setCurrentPage);
   const { data, isLoading } = useFetch(`/api/inmuebles?page=${page}`);
   const { total, currentPage, lastPage, data: inmuebleData } = data || {};
   const nextPage = () => {
@@ -29,6 +38,18 @@ export default function Component() {
   const prevPage = () => {
     setPage((prevPage) => Math.max(prevPage - 1, 1));
   };
+
+  useEffect(() => {
+    if (total) {
+      setTotalPage(total);
+    }
+    if (currentPage) {
+      setCurrentPage(currentPage);
+    }
+    if (lastPage) {
+      setLastPage(lastPage);
+    }
+  }, [total, currentPage, lastPage, inmuebleData]);
   console.log(inmuebleData);
   return (
     <>
@@ -36,10 +57,25 @@ export default function Component() {
       <main>
         <CarouselHeader />
         <Main>
-          {
-            
-          }
-          <Card />
+          {isLoading ? (
+            <>
+              <Skeleton />
+              <Skeleton />
+              <Skeleton />
+              <Skeleton />
+              <Skeleton />
+              <Skeleton />
+            </>
+          ) : (
+            inmuebleData.map((inmueble: Inmueble) => (
+              <Card
+                key={inmueble.id}
+                nombre={inmueble.nombre}
+                precio={inmueble.precio}
+                imagen={inmueble.imagen}
+              />
+            ))
+          )}
         </Main>
       </main>
       <Footer />

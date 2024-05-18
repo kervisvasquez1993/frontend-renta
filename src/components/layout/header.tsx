@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 export const Header = () => {
@@ -20,7 +21,9 @@ export const Header = () => {
               fill="currentColor"
             />
           </svg>
-          <span className="text-2xl font-bold">Property Finder</span>
+          <Link href={"/"} className="text-2xl font-bold">
+            Property Finder
+          </Link>
         </div>
         <nav>
           <ul className="flex space-x-4">
@@ -39,15 +42,13 @@ export const Header = () => {
                 Rent
               </a>
             </li>
+            <Link href={"/login"} className="hover:text-gray-400">
+              Sing In
+            </Link>
             <li>
-              <a className="hover:text-gray-400" href="#">
-                Login
-              </a>
-            </li>
-            <li>
-              <a className="hover:text-gray-400" href="#">
+              <Link href={"/register"} className="hover:text-gray-400">
                 Sing up
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
