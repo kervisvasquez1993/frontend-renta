@@ -26,7 +26,7 @@ export default function Component() {
           "Content-Type": "application/json",
         },
       });
-      console.log(response, "response");
+      
       if (response.status === 201) {
         const data = response.data;
         toast.success(data.message);
