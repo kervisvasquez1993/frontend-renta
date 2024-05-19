@@ -8,8 +8,6 @@ export const Header = () => {
   const user = useAuthStore((state) => state.user);
   const setUser = useAuthStore((state) => state.setUser);
   const setToken = useAuthStore((state) => state.setToken);
-
-  console.log(user);
   return (
     <header className="bg-gray-900 text-white py-4">
       <div className="container mx-auto flex justify-between items-center">

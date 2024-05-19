@@ -18,6 +18,7 @@ export const solicitudInmobiliarias = async (token: string, body : InmobiliariaI
     if (response.status === 201) {
       return response;
     } else {
+      console.log("error")
       throw new Error("error al actuaizar data");
     }
   } catch (error) {

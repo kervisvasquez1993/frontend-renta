@@ -17,7 +17,6 @@ import { useAuthStore } from "@/store/auth.store";
 
 export const CardRegisterInmobiliaria = () => {
   const token = useAuthStore((state) => state.token);
-
   const {
     register,
     handleSubmit,
@@ -26,25 +25,26 @@ export const CardRegisterInmobiliaria = () => {
     reset,
   } = useForm();
   const onSubmit = handleSubmit(async (value) => {
+    console.log("called");
     const body = {
       nombre: value["company-name"],
       direccion: value["company-address"],
       email: value["company-email"],
       telefono: value["company-phone"],
     };
-    console.log(body);
-
     try {
       const response = await solicitudInmobiliarias(token, body);
       console.log(response);
       if (response.status === 201) {
-          const data = response.data;
-          toast.success(data.message);
-          reset();
-        } else {
-          toast.error(response?.email);
-        }
+        const data = response.data;
+        toast.success(data.message);
+        reset();
+      } else {
+        toast.error(response?.email);
+        console.log(response);
+      }
     } catch (error) {
+      console.log(error);
       toast.error(error);
     }
   });
@@ -59,6 +59,7 @@ export const CardRegisterInmobiliaria = () => {
             <Label htmlFor="company-name">Nombre de la Inmobiliaria</Label>
             <Input
               id="company-name"
+              required
               placeholder="Ingrese el nombre de la inmobiliaria"
               {...register("company-name", {
                 required: {
@@ -93,6 +94,7 @@ export const CardRegisterInmobiliaria = () => {
             <div>
               <Label htmlFor="company-email">Email</Label>
               <Input
+                required
                 id="company-email"
                 placeholder="Ingrese el email de la inmobiliaria"
                 type="email"
@@ -113,6 +115,7 @@ export const CardRegisterInmobiliaria = () => {
               <Input
                 id="company-phone"
                 placeholder="Ingrese el teléfono de la inmobiliaria"
+                required
                 type="tel"
                 {...register("company-phone", {
                   required: {

@@ -36,8 +36,8 @@ export default function Component() {
         console.error("Error al enviar el formulario");
       }
     } catch (error) {
-      console.log(error.response)
-      toast.error(error.response.data.error.email);
+      console.log(error?.response)
+      toast.error(error?.response?.data?.error?.email);
     }
   });
   return (

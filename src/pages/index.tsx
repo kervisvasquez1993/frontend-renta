@@ -1,15 +1,3 @@
-/**
- * v0 by Vercel.
- * @see https://v0.dev/t/f6y8QtNVkIH
- * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
- */
-import {
-  CarouselItem,
-  CarouselContent,
-  CarouselPrevious,
-  CarouselNext,
-  Carousel,
-} from "@/components/ui/carousel";
 import { Footer } from "@/components/layout/footer";
 import { Main } from "@/components/shared/Main";
 import { Card } from "@/components/ui/cardInmueble";
@@ -18,7 +6,7 @@ import { CarouselHeader } from "@/components/shared/CarouselHeader";
 import { useFetch } from "@/hooks/useFetch";
 import { useEffect, useState } from "react";
 import { usePagePagination } from "@/store/usePagePagination.store";
-import { Skeleton } from "@/components/ui/skeleton";
+import { Skeleton, SkeletonCard } from "@/components/ui/skeleton";
 import { Inmueble } from "../interfaces/Inmueble";
 
 export default function Component() {
@@ -50,7 +38,6 @@ export default function Component() {
       setLastPage(lastPage);
     }
   }, [total, currentPage, lastPage, inmuebleData]);
-  console.log(inmuebleData);
   return (
     <>
       <Header />
@@ -59,12 +46,12 @@ export default function Component() {
         <Main>
           {isLoading ? (
             <>
-              <Skeleton />
-              <Skeleton />
-              <Skeleton />
-              <Skeleton />
-              <Skeleton />
-              <Skeleton />
+              <SkeletonCard />
+              <SkeletonCard />
+              <SkeletonCard />
+              <SkeletonCard />
+              <SkeletonCard />
+              <SkeletonCard />
             </>
           ) : (
             inmuebleData?.map((inmueble: Inmueble) => (
