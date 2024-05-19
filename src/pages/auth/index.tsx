@@ -2,7 +2,7 @@ import { TableSared } from "@/components/shared/TableSared";
 import { MainAdmin } from "@/components/shared/MainAdmin";
 import { AuthValidate } from "@/components/shared/AuthValidate";
 
-export default function Component() {
+const Auth = () => {
   return (
     <>
       <AuthValidate />
@@ -11,4 +11,6 @@ export default function Component() {
       </MainAdmin>
     </>
   );
-}
+};
+
+export default Auth;

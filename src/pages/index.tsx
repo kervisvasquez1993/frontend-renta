@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/carousel";
 import { Footer } from "@/components/layout/footer";
 import { Main } from "@/components/shared/Main";
-import { Card } from "@/components/ui/card";
+import { Card } from "@/components/ui/cardInmueble";
 import { Header } from "@/components/layout/header";
 import { CarouselHeader } from "@/components/shared/CarouselHeader";
 import { useFetch } from "@/hooks/useFetch";
@@ -67,7 +67,7 @@ export default function Component() {
               <Skeleton />
             </>
           ) : (
-            inmuebleData.map((inmueble: Inmueble) => (
+            inmuebleData?.map((inmueble: Inmueble) => (
               <Card
                 key={inmueble.id}
                 nombre={inmueble.nombre}
