@@ -20,7 +20,7 @@ const Me = () => {
   return (
     <>
       <AuthValidate />
-      <MainAdmin title="Mis propiedades">
+      <MainAdmin title="Mi Perfil">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <CardInfoMe />
@@ -39,6 +39,7 @@ const Me = () => {
               telefono={inmobiliaria.telefono}
               status={inmobiliaria.status}
               key={inmobiliaria.email}
+              id={inmobiliaria.id}
             />
           ))}
         </ListCardImbobiliaria>

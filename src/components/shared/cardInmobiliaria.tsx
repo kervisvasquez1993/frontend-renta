@@ -6,7 +6,8 @@ export const CardInmobiliaria = ({
   email,
   nombre,
   telefono,
-  status
+  status,
+  id
 }: InmobiliariaInfo) => {
   return (
     <div className="bg-white rounded-lg shadow-md dark:bg-gray-800">
