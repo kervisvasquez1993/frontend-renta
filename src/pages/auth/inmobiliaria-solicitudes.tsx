@@ -27,13 +27,6 @@ const InmobiliariaSolicitudes = () => {
         const currentData = data;
         mutate();
         toast.success("Update status in inmobiliaria");
-        // const inmobiliariaIndex = currentData.findIndex(inmobiliaria => inmobiliaria.id === id);
-        // if (inmobiliariaIndex !== -1) {
-        //   const updatedInmobiliaria = await getInmobiliaria( token, id); 
-        //   currentData[inmobiliariaIndex] = updatedInmobiliaria;
-        //   mutate(currentData, false); 
-        //   toast.success("Update status in inmobiliaria");
-        // }
       }
     } catch (e) {
       throw "error";
